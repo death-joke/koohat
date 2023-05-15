@@ -1,7 +1,7 @@
 //create a boostrap navbar component
 import React from 'react';
 
-import {Route, BrowserRouter as Router, Routes, Link} from "react-router-dom";
+import {Route, BrowserRouter as  Routes} from "react-router-dom";
 
 
 import Container from 'react-bootstrap/Container';
@@ -21,7 +21,13 @@ const NavBar = () => {
         <div className="NavBar">
     <Navbar bg="dark" expand="lg" variant='dark'>
       <Container>
-        <Navbar.Brand href="/home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="/home"><img
+              src="./images/koohat_logo.svg"
+              width="75"
+              //height="50"
+              className="d-inline-block align-top"
+              alt="React Bootstrap logo"
+            /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

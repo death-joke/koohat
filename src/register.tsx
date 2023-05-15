@@ -2,7 +2,13 @@ import React from "react";
 
 export default function Register() {
 
-    function checkConnected(){}
+    function checkConnected(){
+        if (localStorage.getItem("name") !== null){
+            //window.location.href = "/";
+            alert("Vous êtes déjà connecté");
+        }
+    }
+
     function createAccount(){
         var name = (document.getElementById("name") as HTMLInputElement).value;
         var email = (document.getElementById("email") as HTMLInputElement).value;
@@ -16,6 +22,7 @@ export default function Register() {
         .then((response) => {
             if (response.status === 200){
                 alert("Compte créé");
+                localStorage.setItem("name", name);
             }
             else if (response.status === 409){
                 alert("Nom d'utilisateur déjà utilisé");

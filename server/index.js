@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-export const mongo = mongoose.connect("mongodb://localhost:27017").then(r => console.log("Mongoose ok"))
+const mongo = mongoose.connect("mongodb://0.0.0.0:27017").then(r => console.log("Mongoose ok"))
 const app = express();
 import {User} from './models/user.js';
 app.use(express.json())

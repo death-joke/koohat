@@ -2,12 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Connect from './connect';
+import Register from './register';
 
 function App() {
   return (
     <div className="App">
-      <Connect />
+      <Register />
     </div>
   );
 }

@@ -24,7 +24,9 @@ const QuizzManager = (props: {quizzList: Quizz[]}) => {
                             <td>{quizz.summary}</td>
                             <td><button className="btn btn-danger" onClick={
                                 () => {
-                                   //requête pour del le quizz
+                                   //send a get request to the server to delete the quizz
+                                   fetch("http://localhost:3001/delete-quizz", {method: "GET", body: JSON.stringify({quizzId: quizz.id}), headers: {"Content-Type": "application/json"}})
+
                                 }
                             }>delete</button></td>
                         </tr>

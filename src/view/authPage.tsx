@@ -8,7 +8,7 @@ import Register from '../composant/register';
 
 const AuthPage = () => {
     return (
-        <div className="AuthPage" style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '50vh'}}>
+        <div className="AuthPage" style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '60vh'}}>
             <Register/>
         </div>
     );

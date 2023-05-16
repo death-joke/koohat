@@ -13,7 +13,7 @@ export default function Login() {
         .then((response) => {
             if (response.status === 200){
                 localStorage.setItem("name", name);
-                alert("ok");
+                //alert("ok");
             }
             else if (response.status === 404){
                 alert("Nom d'utilisateur ou mot de passe incorrect");

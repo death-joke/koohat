@@ -1,8 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import {User} from './models/user.js';
 const mongo = mongoose.connect("mongodb://0.0.0.0:27017").then(r => console.log("Mongoose ok"))
 const app = express();
-import {User} from './models/user.js';
 app.use(express.json())
 
 //Server listen on port 3001

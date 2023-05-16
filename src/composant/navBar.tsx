@@ -77,7 +77,13 @@ const NavBar = () => {
             { isUserConnected?
             
             <Nav.Item className="ml-auto" >
-              <Nav.Link  href="/login">sign out</Nav.Link>
+              <Nav.Link  href="/login" onClick={
+                () => {
+                  localStorage.removeItem("name");
+                  localStorage.removeItem("token");
+                  localStorage.removeItem("id");
+                }
+              }>sign out</Nav.Link>
             </Nav.Item> : null 
             }
 

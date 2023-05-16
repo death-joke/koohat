@@ -3,13 +3,15 @@
 import React from 'react';
 
 import { Quizz } from '../class/quizz';
+import { useParams } from 'react-router-dom';
 
-const PlayQuizzPage = (props: { quizz: Quizz }) => {
+const PlayQuizzPage = () => {
+    const {id} = useParams();
+    console.log(id);
     return (
         <div>
             <h1>Play Quizz Page</h1>
-            <h2>{props.quizz.name}</h2>
-            <p>{props.quizz.summary}</p>
+            <h2>{id}</h2>
         </div>
     );
 };

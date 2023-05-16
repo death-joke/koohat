@@ -17,6 +17,7 @@ import HomePage  from '../view/homePage';
 import AuthPage from '../view/authPage';
 import FindQuizzPage from '../view/findQuizzPage';
 import ManageMyQuizzPage  from '../view/manageMyquizz';
+import PlayQuizzPage from "../view/PlayQuizzPage";
 const NavBar = () => {
 
   var isUserConnected = (localStorage.getItem("name") !== null);
@@ -97,7 +98,8 @@ const NavBar = () => {
             <Routes>
             <Route  path="/home" element={<HomePage/>}/>
             <Route  path="/quizz-editor" element={<QuizzEditorPage/>}/>
-            <Route  path="/search-quizz" element={<FindQuizzPage/>}/>
+            <Route  path="/search-quizz/*" element={<FindQuizzPage/>}/>
+            <Route  path="/play-quizz/:id" element={<PlayQuizzPage/>}/>
             <Route  path="/login" element={<LoginPage/>}/>
             <Route  path="/auth" element={<AuthPage/>}/>
             <Route  path="/manage-my-quizz" element={<ManageMyQuizzPage/>}/>

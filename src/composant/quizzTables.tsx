@@ -22,14 +22,14 @@ const QuizzTables = (props: { quizzs: Quizz[] }) => {
                 </thead>
                 <tbody>
                  
-                    {props.quizzs.map((quizz: Quizz,index) => {
+                    {props.quizzs.map((quizz: Quizz, index) => {
                         return (
                             
-                            <tr key={quizz.id}  id={quizz.id.toString()}>
+                            <tr key={quizz._id} id={quizz._id.toString()}>
                                 
-                                <td><Link to={"quizz_id="+quizz.id.toString()}>{quizz.name}</Link></td>
-                                <td>{quizz.summary}</td>
-                                <td>{quizz.creator}</td>                               
+                                <td><Link to={`/play-quizz/${quizz._id}`}>{quizz.name}</Link></td>
+                                <td>{quizz.description}</td>
+                                <td>{quizz.userId}</td>
                             </tr>
                         );
                     })}
@@ -37,12 +37,7 @@ const QuizzTables = (props: { quizzs: Quizz[] }) => {
                 </tbody>
             </Table>
             <Routes>
-                {props.quizzs.map((quizz: Quizz,index) => {
-                    return (
-                        <Route key={quizz.id} path={"/quizz_id="+quizz.id.toString()} element={<PlayQuizzPage quizz={quizz} />}/>
-                    );
-                })
-                }
+                <Route path={`/search-quizz/:id`} Component={PlayQuizzPage}/>
             </Routes>
 
         

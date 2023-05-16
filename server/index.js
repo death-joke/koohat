@@ -165,6 +165,7 @@ app.post("/login", (req, res) => {
     console.log("POST /login - logging user");
     let user = new User(req.body);
     User.findOne({name: user.name}).then(u => {
+        console.log(u)
         if (u != null) {
             if (u.password === user.password) {
                 res.status(200);
@@ -173,9 +174,10 @@ app.post("/login", (req, res) => {
                 res.status(404);
                 res.send(`Mot de passe incorrect`);
             }
+        } else {
+            res.status(404);
+            res.send(`Identifiant ou mot de passe incorrect`);
         }
-        console.log(user);
-        res.send("You just called the post method at '/user'!\n");
     })
 })
 

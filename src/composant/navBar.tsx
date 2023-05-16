@@ -47,13 +47,13 @@ const NavBar = () => {
 
            
            <NavDropdown title="Quizz" id="basic-nav-dropdown">
-              <NavDropdown.Item href={ isUserConnected?'/search-quizz':'#'} onClick={
+              <NavDropdown.Item href={ /*isUserConnected?*/'/search-quizz'/*:'#'*/} /*onClick={
                 () => {
                   if(!isUserConnected){
                     alert("you must be logged in to play a quizz");
                   }
                 }
-              }>fund a quizz</NavDropdown.Item>
+              }*/>fund a quizz</NavDropdown.Item>
               <NavDropdown.Item href={ isUserConnected?'/quizz-editor':'#'} onClick={
                 () => {
                   if(!isUserConnected){
@@ -91,7 +91,7 @@ const NavBar = () => {
             <Routes>
             <Route  path="/home" element={<HomePage/>}/>
             <Route  path="/quizz-editor" element={<QuizzEditorPage/>}/>
-            <Route  path="/search-quizz" element={<FindQuizzPage/>}/>
+            <Route  path="/search-quizz/*" element={<FindQuizzPage/>}/>
             <Route  path="/login" element={<LoginPage/>}/>
             <Route  path="/auth" element={<AuthPage/>}/>
             <Route  path="/manage-my-quizz" element={<ManageMyQuizzPage/>}/>

@@ -22,14 +22,14 @@ const QuizzTables = (props: { quizzs: Quizz[] }) => {
                 </thead>
                 <tbody>
                  
-                    {props.quizzs.map((quizz: Quizz,index) => {
+                    {props.quizzs.map((quizz: Quizz, index) => {
                         return (
                             
-                            <tr key={quizz.id}  id={quizz.id.toString()}>
+                            <tr key={quizz._id} id={quizz._id.toString()}>
                                 
-                                <td><Link to={`/search-quizz/${quizz.id}`}>{quizz.name}</Link></td>
-                                <td>{quizz.summary}</td>
-                                <td>{quizz.creator}</td>                               
+                                <td><Link to={`/play-quizz/${quizz._id}`}>{quizz.name}</Link></td>
+                                <td>{quizz.description}</td>
+                                <td>{quizz.userId}</td>
                             </tr>
                         );
                     })}

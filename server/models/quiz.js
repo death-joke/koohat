@@ -8,8 +8,8 @@ let quizSchema = new Schema({
         libelle: String,
         number: Number,
         responses : [{
-            answerStatus: Boolean,
-            answerText: String   //if the answer is true or false for the question
+            isCorrect: Boolean,
+            name: String   //if the answer is true or false for the question
         }],
     }]
 })

@@ -13,7 +13,7 @@ export default function Login() {
         .then((response) => {
             if (response.status === 200){
                 localStorage.setItem("name", name);
-                <Navigate to='/home'></Navigate>
+                window.location.href = "/home";
                 
                 //alert("ok");
             }

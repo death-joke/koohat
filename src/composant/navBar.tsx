@@ -48,7 +48,7 @@ const NavBar = () => {
 
            
            <NavDropdown title="Quizz" id="basic-nav-dropdown">
-              <NavDropdown.Item href={ /*isUserConnected?*/'/search-quizz'/*:'#'*/} /*onClick={
+              <NavDropdown.Item href={ isUserConnected?'/search-quizz':'#'} onClick={
                 () => {
                   if(!isUserConnected){
                     alert("you must be logged in to play a quizz");

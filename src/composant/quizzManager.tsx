@@ -21,7 +21,7 @@ const QuizzManager = (props: {quizzList: Quizz[]}) => {
                     {props.quizzList.map((quizz, index) => (
                         <tr key={index}>
                             <td>{quizz.name}</td>
-                            <td>{quizz.summary}</td>
+                            <td>{quizz.description}</td>
                             <td><button className="btn btn-danger">delete</button></td>
                         </tr>
                     ))}

@@ -193,7 +193,7 @@ app.post("/register", (req, res) => {
         } else {
             user.save().then(r => {
                 res.status(200);
-                res.send(r);
+                res.send(u);
             }, error => {
                 console.log(error);
                 res.status(500);

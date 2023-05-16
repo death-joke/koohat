@@ -4,7 +4,7 @@ import CreateQuizz from '../composant/CreateQuizz';
 
 const QuizzEditorPage = () => {
     return (
-        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '75vh'}}>
+        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', }}>
            <CreateQuizz/>
         </div>
     );

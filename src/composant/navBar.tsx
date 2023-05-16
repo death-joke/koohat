@@ -93,7 +93,7 @@ const NavBar = () => {
             <Route  path="/home" element={<HomePage/>}/>
             <Route  path="/quizz-editor" element={<QuizzEditorPage/>}/>
             <Route  path="/search-quizz/*" element={<FindQuizzPage/>}/>
-            <Route  path="/play-quizz/*" element={<PlayQuizzPage/>}/>
+            <Route  path="/play-quizz/:id" element={<PlayQuizzPage/>}/>
             <Route  path="/login" element={<LoginPage/>}/>
             <Route  path="/auth" element={<AuthPage/>}/>
             <Route  path="/manage-my-quizz" element={<ManageMyQuizzPage/>}/>

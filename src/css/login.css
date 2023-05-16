@@ -1,0 +1,48 @@
+#login_div{
+        
+        background-color: #3a3f3c;
+        position: absolute;
+        width: 50%;
+        padding: 2.5%;
+        border-top-right-radius: 15%;
+        border-bottom-right-radius: 15%;
+        border-top-left-radius: 15%;
+        border-bottom-left-radius: 15%;
+        
+}
+#login_div h1{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 5%;
+}
+#login_div button{
+    background-color: #3a3f3c;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 2%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 1.5em;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+}
+#login_div button:hover{
+    background-color: #3a3f3c;
+    color: rgba(40, 192, 23, 0.497);
+    border: 1px solid rgba(40, 192, 23, 0.497);
+    border-radius: 5px;
+    padding: 2%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 1.5em;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+}

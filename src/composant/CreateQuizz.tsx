@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+
+import "../css/quizz_editor.css";
 
 import Question from "./question";
 
@@ -10,7 +14,7 @@ export default function CreateQuizz() {
      * Add a question to the form
      */
     function AddQuestion(){
-        setQuestion([...question, <Question number={i}/>]);
+        setQuestion([...question, <Question number={i} key={i}/>]);
         setI(i+1);
     }
 
@@ -26,7 +30,7 @@ export default function CreateQuizz() {
             var reponses = [];
             for(var k = 1; k < 5; k++){
                 var reponse = (document.getElementById("reponse"+k+j) as HTMLInputElement).value;
-                var correct = (document.getElementById("correct"+k+j) as HTMLInputElement).checked;
+                var correct = (document.getElementById("good"+k+j) as HTMLInputElement).checked;
                 reponses.push({answerStatus: correct, anserText: reponse});
             }
             questions.push({libelle: question, number: j, responses: reponses});
@@ -48,12 +52,37 @@ export default function CreateQuizz() {
     }
 
     return(
-        <div>
+        <div id="quizz_edit_div">
+            <h1>Create a Quizz</h1>
             <div id="form">
-                <input type="text" id="nameform" placeholder="Nom du formulaire"/>
+
+            <FloatingLabel
+            controlId="floatingInput"
+            label="Quizz name"
+            className="mb-3"
+            >
+                <Form.Control type="email" placeholder="name@example.com" id="nameform" />
+            </FloatingLabel>
+          
+                
+                {/* <input type="text" id="nameform" placeholder="Nom du formulaire"/> */}
+
+
                 <br />
-                <textarea id="description" placeholder="Description du formulaire"></textarea>
-                <Question number={1}/>
+
+                <FloatingLabel controlId="floatingPassword" label="Description du formulaire">
+                    <Form.Control type="text" as="textarea" placeholder="Password" rows={9} id="description"/>
+                </FloatingLabel>
+
+            
+
+
+                {/* <textarea id="description" placeholder="Description du formulaire"></textarea> */}
+
+
+            <br />
+            <br /><br />
+                <Question number={1} key={2}/>
             </div>
             {question}
             <button onClick={AddQuestion}>Ajouter une question</button>

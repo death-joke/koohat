@@ -1,14 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './composant/navBar'
+//import './App.css';
+import NavBar from './composant/navBar';
+import { BrowserRouter } from 'react-router-dom';
 
-import Login from './login';
-import CreateQuizz from './CreateQuizz';
 
 function App() {
   return (
+
     <div className="App">
-      <CreateQuizz />
+       <header className="App-header">
+      <BrowserRouter>     
+        <NavBar/>
+      </BrowserRouter>       
+      </header>
     </div>
   );
 }

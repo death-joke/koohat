@@ -1,4 +1,7 @@
 import React from "react";
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+import '../css/register.css';
 
 export default function Register() {
 
@@ -31,19 +34,58 @@ export default function Register() {
     }
 
     return(
-        <div>
+        <div id="register_div">
             <h1>Créer un compte</h1>
-            <label>Nom d'utilisateur : </label>
-            <input type="text" id="name"/>
+        <FloatingLabel
+        controlId="floatingInput"
+        label="Username"
+        className="mb-3"
+        >
+        <Form.Control type="text" placeholder="username"  id="name"/>
+        </FloatingLabel>
+
+            {/* <label>Nom d'utilisateur : </label>
+            <input type="text" id="name"/> */}
             <br />
+
+            <FloatingLabel
+        controlId="floatingInput"
+        label="Email address"
+        className="mb-3"
+        >
+        <Form.Control type="email" placeholder="name@example.com"  id="email"/>
+        </FloatingLabel>
+
+{/* 
             <label>Adresse mail : </label>
-            <input type="email" id="email"/>
+            <input type="email" id="email"/> */}
             <br />
-            <label>Mot de passe : </label>
-            <input type="password" id="password"/>
+
+            <FloatingLabel
+        controlId="floatingInput"
+        label="Password"
+        className="mb-3"
+        >
+        <Form.Control type="password" placeholder="***"  id="password"/>
+        </FloatingLabel>
+
+            
+            {/* <label>Mot de passe : </label>
+            <input type="password" id="password"/> */}
             <br />
-            <label>Confirmer le mot de passe : </label>
-            <input type="password" id="password2"/>
+
+
+            <FloatingLabel
+        controlId="floatingInput"
+        label="Password confirmation"
+        className="mb-3"
+        >
+        <Form.Control type="password" placeholder="***"  id="password2"/>
+        </FloatingLabel>
+
+
+            {/* <label>Confirmer le mot de passe : </label>
+            <input type="password" id="password2"/> */}
             <br />
             <button onClick={createAccount}>Créer un compte</button>
         </div>

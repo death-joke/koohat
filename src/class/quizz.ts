@@ -19,6 +19,17 @@ export class Quizz {
     static generateRandomQuizz(): Quizz {
         return new Quizz("creator" + Math.floor(Math.random() * 1000000), Math.floor(Math.random() * 1000000), "name" + Math.floor(Math.random() * 1000000), "summary" + Math.floor(Math.random() * 1000000), ["question" + Math.floor(Math.random() * 1000000)], [Response.generateRandomResponse()]);
     }
+
+    //create a static function to generate an array of random quizz
+    static generateRandomQuizzArray(size: number): Quizz[] {
+        let quizzArray: Quizz[] = [];
+        for (let i = 0; i < size; i++) {
+            quizzArray.push(Quizz.generateRandomQuizz());
+        }
+        return quizzArray;
+    }
+
+
 }
 
 //create a response class with the field name and isCorrect

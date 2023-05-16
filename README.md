@@ -29,11 +29,9 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-
 ### `npm run server`
 
 Launch the express server, who will start listenning to the port [http://localhost:3001](http://localhost:3001)
-
 
 ### `npm run dev`
 
@@ -55,7 +53,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Version and module use 
+## Version and module use
 
 This project was found with node v18.12.1 and npm v9.6.6 .
 
@@ -73,8 +71,7 @@ The module use in this project are :
   `npm install node-env-run nodemon npm-run-all express-pino-logger pino-colada --save-dev npm install express body-parser --save-dev`
 
   or just by running the command :
-* `npm cli`
-
+* `npm i`
 
 ## Learn More
 

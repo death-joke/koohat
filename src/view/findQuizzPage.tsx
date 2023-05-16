@@ -15,7 +15,7 @@ const FindQuizzPage = () => {
             .then((response) => response.json())
             .then(data => setQuizzs(data))
             .catch(error => console.log(error));
-    });
+    }, []);//retourne l'effet qu'une fois
 
     return (
         <div className="FindQuizzPage">

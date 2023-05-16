@@ -22,7 +22,11 @@ const QuizzManager = (props: {quizzList: Quizz[]}) => {
                         <tr key={index}>
                             <td>{quizz.name}</td>
                             <td>{quizz.summary}</td>
-                            <td><button className="btn btn-danger">delete</button></td>
+                            <td><button className="btn btn-danger" onClick={
+                                () => {
+                                   //requête pour del le quizz
+                                }
+                            }>delete</button></td>
                         </tr>
                     ))}
                 </tbody>

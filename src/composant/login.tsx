@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Navigate } from "react-router-dom";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import '../css/login.css';
@@ -13,6 +13,8 @@ export default function Login() {
         .then((response) => {
             if (response.status === 200){
                 localStorage.setItem("name", name);
+                <Navigate to='/home'></Navigate>
+                
                 //alert("ok");
             }
             else if (response.status === 404){

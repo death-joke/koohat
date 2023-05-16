@@ -31,7 +31,7 @@ export default function CreateQuizz() {
             }
             questions.push({libelle: question, number: j, responses: reponses});
         }
-        var data = {name: name, description: description, questions: questions};
+        var data = {userId: localStorage.getItem("id"), name: name, description: description, questions: questions};
         fetch("http://localhost:3001/createQuizz", {
             method: "POST",
             body: JSON.stringify(data),

@@ -1,4 +1,3 @@
-import React from "react";
 
 /**
  * Composant question pour la création d'un quizz

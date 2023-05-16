@@ -4,8 +4,6 @@ import './composant/navBar'
 import NavBar from './composant/navBar';
 import { BrowserRouter } from 'react-router-dom';
 
-import Login from './login';
-import CreateQuizz from './CreateQuizz';
 
 function App() {
   return (

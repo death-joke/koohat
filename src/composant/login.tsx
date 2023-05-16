@@ -1,5 +1,9 @@
 import React from "react";
 
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+import '../css/login.css';
+
 export default function Login() {
 
     function connecter(){
@@ -9,7 +13,7 @@ export default function Login() {
         .then((response) => {
             if (response.status === 200){
                 localStorage.setItem("name", name);
-                alert("ok");
+                //alert("ok");
             }
             else if (response.status === 404){
                 alert("Nom d'utilisateur ou mot de passe incorrect");
@@ -18,12 +22,32 @@ export default function Login() {
     }
 
     return (
-        <div>
+        <div id="login_div">
+            <h1>Se connecter</h1>
+
+            <FloatingLabel
+        controlId="floatingInput"
+        label="Username"
+        className="mb-3"
+        >
+        <Form.Control type="texte" placeholder="username"  id="name"/>
+        </FloatingLabel>
+{/* 
             <label>Nom d'utilisateur : </label>
-            <input type="text" id="name"/>
+            <input type="text" id="name"/> */}
+
             <br />
-            <label>Mot de passe : </label>
-            <input type="password" id="password"/>
+
+            <FloatingLabel
+        controlId="floatingInput"
+        label="password"
+        className="mb-3"
+        >
+        <Form.Control type="password" placeholder="********"  id="password"/>
+        </FloatingLabel>
+
+            {/* <label>Mot de passe : </label>
+            <input type="password" id="password"/> */}
             <br />
             <button onClick={connecter}>Se connecter</button>
         </div>

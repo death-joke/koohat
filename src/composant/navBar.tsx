@@ -20,7 +20,7 @@ import ManageMyQuizzPage  from '../view/manageMyquizz';
 import PlayQuizzPage from "../view/PlayQuizzPage";
 const NavBar = () => {
 
-  var isUserConnected = (localStorage.getItem("name") == null);
+  var isUserConnected = (localStorage.getItem("name") !== null);
     return (
         <div className="NavBar">
     <Navbar bg="dark" expand="lg" variant='dark'>
@@ -54,7 +54,7 @@ const NavBar = () => {
                     alert("you must be logged in to play a quizz");
                   }
                 }
-              }*/>fund a quizz</NavDropdown.Item>
+              }>find a quizz</NavDropdown.Item>
               <NavDropdown.Item href={ isUserConnected?'/quizz-editor':'#'} onClick={
                 () => {
                   if(!isUserConnected){
@@ -78,7 +78,13 @@ const NavBar = () => {
             { isUserConnected?
             
             <Nav.Item className="ml-auto" >
-              <Nav.Link  href="/login">sign out</Nav.Link>
+              <Nav.Link  href="/login" onClick={
+                () => {
+                  localStorage.removeItem("name");
+                  localStorage.removeItem("token");
+                  localStorage.removeItem("id");
+                }
+              }>sign out</Nav.Link>
             </Nav.Item> : null 
             }
 

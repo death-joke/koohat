@@ -1,23 +1,39 @@
 import express from 'express';
+import http from 'http';
+import {Server} from 'socket.io';
 import mongoose from 'mongoose';
-
-export const mongo = mongoose.connect("mongodb://127.0.0.1:27017").then(r => {
-    console.log("Mongoose ok");
-})
-// export const ObjectId = mongoose.Types.ObjectId;
-const app = express();
 import {User} from './models/user.js';
 import {Quiz} from './models/quiz.js';
 import {Score} from "./models/score.js";
 import {getId} from "./utils.js";
 // import dotenv from 'dotenv';
 // console.log(dotenv.config());
+mongoose.connect("mongodb://127.0.0.1:27017").then(r => {
+    console.log("Mongoose ok");
+})
+// export const ObjectId = mongoose.Types.ObjectId;
+const app = express();
 app.use(express.json())
 
-//Server listen on port 3001
-app.listen(3001, () =>
+const server = http.createServer(app);
+export const io = new Server(server, {
+    cors: {origin: "*", methods: ["GET", "POST"]}
+});
+
+
+io.on("connection", (socket) => {
+    console.log('a user connected : ' + socket.id);
+    io.on("join-room", (roomId, userId, cb) => {
+        socket.join(roomId);
+        socket.to(roomId).emit("user-connected", userId);
+        cb("Vous avez rejoint la room "+roomId+" avec l'id "+userId);
+    });
+});
+
+// Start the server
+server.listen(3001, () => {
     console.log('Express server is running on localhost:3001')
-);
+});
 
 // Headers for all requests
 app.use((req, res, next) => {
@@ -29,7 +45,7 @@ app.use((req, res, next) => {
 
 // Options - Accept preflight requests from client
 app.options('*', function (req, res) {
-    res.send(200);
+    res.sendStatus(200);
 });
 
 //Score - Endpoints
@@ -165,7 +181,7 @@ app.post("/login", (req, res) => {
     console.log("POST /login - logging user");
     let user = new User(req.body);
     User.findOne({name: user.name}).then(u => {
-        console.log(u)
+        // console.log(u)
         if (u != null) {
             if (u.password === user.password) {
                 res.status(200);

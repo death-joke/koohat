@@ -2,12 +2,13 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Register from './register';
+import Login from './login';
+import CreateQuizz from './CreateQuizz';
 
 function App() {
   return (
     <div className="App">
-      <Register />
+      <CreateQuizz />
     </div>
   );
 }

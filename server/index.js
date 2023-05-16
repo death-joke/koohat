@@ -168,7 +168,7 @@ app.post("/login", (req, res) => {
         if (u != null) {
             if (u.password === user.password) {
                 res.status(200);
-                res.send(`OK`);
+                res.send(u);
             } else {
                 res.status(404);
                 res.send(`Mot de passe incorrect`);
@@ -191,9 +191,9 @@ app.post("/register", (req, res) => {
             res.status(404);
             res.send(`Le nom ${user.name} est déjà pris`);
         } else {
-            user.save().then(res => {
+            user.save().then(r => {
                 res.status(200);
-                res.send(`Compte créé`);
+                res.send(r);
             }, error => {
                 console.log(error);
                 res.status(500);

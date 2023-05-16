@@ -19,7 +19,7 @@ import FindQuizzPage from '../view/findQuizzPage';
 import ManageMyQuizzPage  from '../view/manageMyquizz';
 const NavBar = () => {
 
-  var isUserConnected = (localStorage.getItem("name") == null);
+  var isUserConnected = (localStorage.getItem("name") !== null);
     return (
         <div className="NavBar">
     <Navbar bg="dark" expand="lg" variant='dark'>
@@ -53,7 +53,7 @@ const NavBar = () => {
                     alert("you must be logged in to play a quizz");
                   }
                 }
-              }>fund a quizz</NavDropdown.Item>
+              }>find a quizz</NavDropdown.Item>
               <NavDropdown.Item href={ isUserConnected?'/quizz-editor':'#'} onClick={
                 () => {
                   if(!isUserConnected){

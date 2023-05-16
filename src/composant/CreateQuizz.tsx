@@ -10,7 +10,7 @@ export default function CreateQuizz() {
      * Add a question to the form
      */
     function AddQuestion(){
-        setQuestion([...question, <Question number={i}/>]);
+        setQuestion([...question, <Question number={i} key={i}/>]);
         setI(i+1);
     }
 
@@ -53,7 +53,7 @@ export default function CreateQuizz() {
                 <input type="text" id="nameform" placeholder="Nom du formulaire"/>
                 <br />
                 <textarea id="description" placeholder="Description du formulaire"></textarea>
-                <Question number={1}/>
+                <Question number={1} key={2}/>
             </div>
             {question}
             <button onClick={AddQuestion}>Ajouter une question</button>

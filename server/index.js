@@ -260,8 +260,6 @@ app.get("/user-quiz/score/:id", (req, res) => {
     let id = getId(req.params.id, res);
     console.log(id)
     QuizAnswer.findOne({_id: id}).then(r => {
-        console.log("r" )
-        console.log(r)
         res.status(200);
         res.send(r);
     }, error => {

@@ -8,9 +8,10 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white)
+![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
 
 ![MIT License](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)
-![Contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)
+![Contributors](https://img.shields.io/github/contributors/death-joke/koohat)
 
 # Getting Started with Create React App
 

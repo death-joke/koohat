@@ -12,6 +12,22 @@
 ![MIT License](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)
 ![Contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)
 
+# How to use koohat ?
+## Create an account
+If you don't akreadt have an account, you can create one by using the "sign in" button on the top left of the web page. This step is required to use the koohat website.
+
+## Login with an already existing account
+If your account is already created, you can enter your login and your password in the text field in the middle of the web page.
+
+## Create a quizz
+You can start the creation of a quizz by clicking "Quizz editor" in the quizz drop down menu in the top naviguation bar. Here, you will be able to fill out the question, and its answers. You can fill up to four answer before selecting the correct ones with the help of the checkboxes at the bottom. Use the "Add a question" button to add a new question and fill it. When you're done with your quizz, you can validate it by clicking the "Create form" button.
+
+## Manage your quizzs
+You can display a list of all of your quizz by cliking "Manage my quizz" in the quizz drop down menu in the top naviguation bar. This is where you are able to delete one or many quizz.
+
+## Join a quizz
+You can launch a quizz by using the quizz drop down meny in the top naviaguation bar. Have fun !
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,5 +1,6 @@
 import mongoose, {Schema} from 'mongoose';
 
+//modele pour la base de données via l'ORM mongoose
 let quizAnswerSchema = new Schema({
     quizId: String,
     userId: String,

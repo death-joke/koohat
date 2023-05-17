@@ -63,6 +63,7 @@ const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
             questions: [],
             score: 0
         };
+        // fill the default values of the quizAttempt
         quizz?.questions.forEach((question) => {
             let questionAttempt : QuestionAttempt = {questionAnswer: [], number: question.number};
             question.responses.forEach((response,index) => {
@@ -77,6 +78,7 @@ const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
         console.log(quizAttempt);
     }, [id, quizz]);
 
+    //handle the response selection (multiple choice)
     const handleResponseSelection = (responseName: string, questionNumber : number, event: React.ChangeEvent<HTMLInputElement>) => {
         event.stopPropagation();
         console.log("responseName : " + responseName + " questionNumber : " + questionNumber);
@@ -96,7 +98,6 @@ const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
             return quizAttempt;
         });
     };
-
 
     return (
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '75vh'}} >

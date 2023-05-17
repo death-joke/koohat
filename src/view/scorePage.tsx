@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/404.css';
 import Score from '../composant/score';
+import {useParams} from "react-router-dom";
+import { QuizAttempt} from '../class/quizz';
 
 const ScorePage = () => {
+
+
+    const {id} = useParams();
+
+    const [quizzs, setQuizzs] = useState<QuizAttempt>();
+
+    // useEffect(() => {
+    //     fetch("http://localhost:3001//user-quiz/score/"+id?.toString(), {method: "GET", headers: {"Content-Type": "application/json"}})
+    //         .then((response) => response.json())
+    //         .then(data => setQuizzs(data))
+    //         .catch(error => console.log(error));
+    // }, [id]);
+
+
     return (
         <div >
             <h1>Score</h1>
-            <Score score={localStorage.getItem("score")}/>
-            
+            <Score score={quizzs!.score}/>
+
           
 
             

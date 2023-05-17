@@ -85,8 +85,8 @@ export default function CreateQuizz() {
                 <Question number={1} key={2}/>
             </div>
             {question}
-            <button onClick={AddQuestion}>Ajouter une question</button>
-            <button onClick={sendQuizz}>Créer le formulaire</button>
+            <button onClick={AddQuestion}>Add a question</button>
+            <button onClick={sendQuizz}>Create form</button>
         </div>
     )
 }

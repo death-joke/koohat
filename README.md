@@ -13,6 +13,7 @@
 ![MIT License](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)
 ![Contributors](https://img.shields.io/github/contributors/death-joke/koohat)
 
+![Koohat logo](/public/images/koohat_logo.svg)
 # How to use koohat ?
 ## Create an account
 If you don't akreadt have an account, you can create one by using the "sign in" button on the top left of the web page. This step is required to use the koohat website.

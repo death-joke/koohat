@@ -9,7 +9,7 @@ import {getId} from "./utils.js";
 import {QuizAnswer} from "./models/quiz-answer.js";
 // import dotenv from 'dotenv';
 // console.log(dotenv.config());
-mongoose.connect("mongodb://127.0.0.1:27017").then(r => {
+mongoose.connect("mongodb://127.0.0.1:27017").then(r => {//connection à la base de données
     console.log("Mongoose ok");
 })
 // export const ObjectId = mongoose.Types.ObjectId;
@@ -21,7 +21,7 @@ export const io = new Server(server, {
     cors: {origin: "*", methods: ["GET", "POST"]}
 });
 
-
+//attempt for multiplayer feature, handle socket connection from client
 io.on("connection", (socket) => {
     console.log('a user connected : ' + socket.id);
     io.on("join-room", (roomId, userId, cb) => {
@@ -38,7 +38,7 @@ server.listen(3001, () => {
 
 // Headers for all requests
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');//allow the client to access the server
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept');
     next();
@@ -59,8 +59,8 @@ app.route("/score/:id")
     .delete((req, res) => {
         let id = getId(req.params.id, res);
         QuizAnswer.findOneAndDelete({userId: id}).then(r => {
-            res.status(200);
-            res.send(`Score supprimé`);
+            res.status(200);//status code : 200 : ok
+            res.send(`Score supprimé`);// send the response with a body (can be text or json(example below)
         }, error => {
             console.log(error);
             res.status(500);
@@ -287,6 +287,7 @@ app.post("/quiz-answer", (req, res) => {
         let score = 0;
         let quiz = q;
         // console.log(quiz.questions[0].responses)
+        //compare the answers with the good answers of the quiz
         for (let i = 0; i < quiz.questions.length; i++) {
             let allAnswersOk = true;
             for (let j = 0; j < quiz.questions[i].responses.length; j++) {

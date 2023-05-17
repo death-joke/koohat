@@ -32,12 +32,13 @@ const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
 
     function submitQuiz() {
         fetch("http://localhost:3001/quiz-answer/",
-            {            method: "POST",
+            {
+                method: "POST",
                 body: JSON.stringify(quizAttempt),
                 headers: {"Content-Type": "application/json"}
             })
             .then((response) => response.json())
-            // .then(data => setQuizz(data))
+            .then(data => console.log(data))
             .catch(error => console.log(error));
     }
 

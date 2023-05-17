@@ -56,6 +56,7 @@ export interface Question {
 export interface QuizAttempt {
     quizId: string;
     userId: string;
+    score: number;
     questions: QuestionAttempt[] // [question][responses]
 }
 

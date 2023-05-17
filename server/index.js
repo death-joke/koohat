@@ -58,7 +58,7 @@ app.options('*', function (req, res) {
 app.route("/score/:id")
     .delete((req, res) => {
         let id = getId(req.params.id, res);
-        Score.findOneAndDelete({userId: id}).then(r => {
+        QuizAnswer.findOneAndDelete({userId: id}).then(r => {
             res.status(200);
             res.send(`Score supprimé`);
         }, error => {
@@ -69,7 +69,7 @@ app.route("/score/:id")
     })
     .get((req, res) => {
         let id = getId(req.params.id, res);
-        Score.findOne({userId: id}).then(r => {
+        QuizAnswer.findOne({userId: id}).then(r => {
             res.status(200);
             res.send(r);
         }, error => {
@@ -235,6 +235,23 @@ app.get("/user-quiz/:id", (req, res) => {
         console.log(error);
         res.status(500);
         res.send(`Erreur lors de la récupération des quiz`);
+    })
+});
+
+/**
+ * /user-quiz/score/
+ * GET - Get all quiz of a user
+ */
+app.get("/user-quiz/score", (req, res) => {
+    console.log("GET /user-quiz/score - retrieving all quiz of a user")
+    let id = getId(req.params.id, res);
+    Quiz.find({userId: id}).then(r => {
+        res.status(200);
+        res.send(r);
+    }, error => {
+        console.log(error);
+        res.status(500);
+        res.send(`Erreur lors de la récupération des essais de quiz d'un user`);
     })
 });
 

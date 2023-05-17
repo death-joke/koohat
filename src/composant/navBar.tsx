@@ -19,6 +19,7 @@ import FindQuizzPage from '../view/findQuizzPage';
 import ManageMyQuizzPage  from '../view/manageMyquizz';
 import PlayQuizzPage from "../view/PlayQuizzPage";
 import PageNotFound from '../view/404Page';
+import ScorePage from '../view/scorePage';
 const NavBar = () => {
 
   var isUserConnected = (localStorage.getItem("name") !== null);
@@ -84,6 +85,7 @@ const NavBar = () => {
                   localStorage.removeItem("name");
                   localStorage.removeItem("token");
                   localStorage.removeItem("id");
+
                 }
               }>sign out</Nav.Link>
             </Nav.Item> : null 
@@ -105,6 +107,8 @@ const NavBar = () => {
             <Route  path="/auth" element={<AuthPage/>}/>
             <Route  path="/manage-my-quizz" element={<ManageMyQuizzPage/>}/>
             <Route  path="/404" element={<PageNotFound/>}/>
+            <Route  path="/score" element={<ScorePage/>}/>
+
             <Route  path="*" element={<Navigate to={'/404'}/>}/>
         </Routes>
         </div>

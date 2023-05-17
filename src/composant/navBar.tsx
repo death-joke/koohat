@@ -2,7 +2,7 @@
 import React from 'react';
 
 // eslint-disable-next-line 
-import {redirect, Route, BrowserRouter as Router, Routes} from "react-router-dom";
+import {Navigate, redirect, Route, BrowserRouter as Router, Routes} from "react-router-dom";
 
 
 import Container from 'react-bootstrap/Container';
@@ -18,6 +18,7 @@ import AuthPage from '../view/authPage';
 import FindQuizzPage from '../view/findQuizzPage';
 import ManageMyQuizzPage  from '../view/manageMyquizz';
 import PlayQuizzPage from "../view/PlayQuizzPage";
+import PageNotFound from '../view/404Page';
 const NavBar = () => {
 
   var isUserConnected = (localStorage.getItem("name") !== null);
@@ -103,6 +104,8 @@ const NavBar = () => {
             <Route  path="/play-quizz/:id" element={<PlayQuizzPage/>}/>
             <Route  path="/auth" element={<AuthPage/>}/>
             <Route  path="/manage-my-quizz" element={<ManageMyQuizzPage/>}/>
+            <Route  path="/404" element={<PageNotFound/>}/>
+            <Route  path="*" element={<Navigate to={'/404'}/>}/>
         </Routes>
         </div>
 

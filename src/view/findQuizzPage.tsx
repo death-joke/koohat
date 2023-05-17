@@ -2,8 +2,7 @@
 
 import React, {useEffect, useState} from 'react';
 import QuizzTables from '../composant/quizzTables';
-import {Quizz} from '../class/quizz';
-import {BrowserRouter as Router} from 'react-router-dom';
+
 
 const FindQuizzPage = () => {
 

@@ -3,6 +3,8 @@ import '../css/404.css';
 import Score from '../composant/score';
 import {useParams} from "react-router-dom";
 import { QuizAttempt} from '../class/quizz';
+import {useParams} from "react-router-dom";
+import { QuizAttempt} from '../class/quizz';
 
 
 const ScorePage = () => {

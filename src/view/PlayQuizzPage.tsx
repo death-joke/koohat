@@ -5,6 +5,8 @@ import React, {useEffect, useState} from 'react';
 import {QuestionAttempt, QuizAnswer, QuizAttempt, Quizz} from '../class/quizz';
 import {useParams} from "react-router-dom";
 
+import '../css/PlayQuizz.css';
+
 const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
     // console.log("quiz");
     const {id} = useParams();
@@ -19,7 +21,7 @@ const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
             .then((response) => response.json())
             .then(data => setQuizz(data))
             .catch(error => console.log(error));
-    }, []);
+    }, [id]);
 
 
     function submitQuiz() {
@@ -58,7 +60,7 @@ const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
         setQuizAttempt(quizAttempt);
         console.log("quizAttempt : ");
         console.log(quizAttempt);
-    }, [quizz]);
+    }, [id, quizz]);
 
     const handleResponseSelection = (responseName: string, questionNumber : number, event: React.ChangeEvent<HTMLInputElement>) => {
         event.stopPropagation();
@@ -67,9 +69,9 @@ const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
             let inputs = document.getElementsByName("question-"+questionNumber) as NodeListOf<HTMLInputElement>;
 
             inputs.forEach((input) => {
-                if (input == event.target) {
+                if (input === event.target) {
                     quizAttempt?.questions[questionNumber-1].questionAnswer.forEach((answer) => {
-                        if (answer.name == input.value) {
+                        if (answer.name === input.value) {
                             answer.isChecked = input.checked;
                             console.log(quizAttempt)
                         }
@@ -82,26 +84,28 @@ const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
 
 
     return (
-        <div>
+        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '75vh'}} >
+            <div id='playQuizz_div'>
             <h1>Play Quizz Page</h1>
             <h2 className="">{quizz?.name}</h2>
             <h2>{quizz?.description}</h2>
             {quizz?.questions.map((question, index) => (
                 <div key={index}>
-                    <h3>{question.libelle}</h3>
-                    <p>Question number: {question.number}</p>
+                    <h3>{question.libelle   +  "  (  Question number:"+ question.number +" )" }</h3>
+
                     <ul>
                         {question.responses.map((response, index) => {
                             return (
                                 <li key={response.name}>
-                                    <label>
-                                        <input
+                                     <input
                                             type="checkbox"
                                             name={`question-${question.number}`}
                                             value={response.name}
                                             onChange={(event) =>
                                                 handleResponseSelection(response.name, question.number, event)}
                                         />
+                                    <label>
+                                       
                                         {response.name}
                                     </label>
                                 </li>
@@ -111,7 +115,7 @@ const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
                 </div>
             ))}
             <button className="btn btn-primary" onClick={() => submitQuiz()}>Submit</button>
-
+            </div>
         </div>
     );
 };

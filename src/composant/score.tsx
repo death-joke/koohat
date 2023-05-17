@@ -52,7 +52,7 @@ const Score = (props: { quizz: QuizAttempt | undefined; }) => {
             <br />
             <br />
 
-            <button onClick={() => { window.location.href = "/search-quizz/*"; }}>Home</button>
+            <button onClick={() => { window.location.href = "/search-quizz/*"; }}>find an other quizz</button>
         </div>
         </div>
     );

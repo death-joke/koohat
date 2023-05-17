@@ -255,6 +255,19 @@ app.get("/user-quiz/score", (req, res) => {
     })
 });
 
+app.get("/user-quiz/score/:id", (req, res) => {
+    console.log("GET /user-quiz/score/:id - retrieving all quiz of a user")
+    let id = getId(req.params.id, res);
+    Quiz.find({userId: id}).then(r => {
+        res.status(200);
+        res.send(r);
+    }, error => {
+        console.log(error);
+        res.status(500);
+        res.send(`Erreur lors de la récupération des essais de quiz d'un user`);
+    })
+});
+
 /**
  * /quiz-answer - user attempt for a quiz
  */

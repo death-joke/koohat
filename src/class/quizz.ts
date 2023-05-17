@@ -54,9 +54,10 @@ export interface Question {
 }
 
 export interface QuizAttempt {
+    _id?: string;
     quizId: string;
     userId: string;
-    score: number;
+    score?: number;
     questions: QuestionAttempt[] // [question][responses]
 }
 

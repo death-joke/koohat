@@ -242,12 +242,15 @@ app.get("/user-quiz/:id", (req, res) => {
  * /user-quiz/score/
  * GET - Get all quiz of a user
  */
-app.get("/user-quiz/score", (req, res) => {
+app.post("/user-quiz/score/:id", (req, res) => {
     console.log("GET /user-quiz/score - retrieving all quiz of a user")
     let id = getId(req.params.id, res);
-    Quiz.find({userId: id}).then(r => {
+    QuizAnswer.find({userId: id}).then(r => {
+        console.log("res")
+        console.log(r)
         res.status(200);
         res.send(r);
+
     }, error => {
         console.log(error);
         res.status(500);
@@ -255,7 +258,7 @@ app.get("/user-quiz/score", (req, res) => {
     })
 });
 
-app.get("/user-quiz/score/:id", (req, res) => {
+app.get("/user-quiz/score/:id", (req, res) => {//one score
     console.log("GET /user-quiz/score/:id - retrieving all quiz of a user")
     let id = getId(req.params.id, res);
     console.log(id)

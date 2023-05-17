@@ -32,8 +32,8 @@ const ScorePage = () => {
 
     return (
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
-          
-           <Score quizz={quizzs}/>         
+
+           <Score quizz={quizzs}/>
         </div>
     );
 };

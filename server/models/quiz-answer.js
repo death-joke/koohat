@@ -1,9 +1,18 @@
 import mongoose, {Schema} from 'mongoose';
 
 let quizAnswerSchema = new Schema({
-    idQuiz: String,//id of the quiz
-    idQuestion: Number,//id of the question (1 to nbMaxQuestions)
-    answers:  [Boolean,Boolean,Boolean,Boolean] //answer of the user
+    quizId: String,
+    userId: String,
+    date : Date,
+    score : Number,
+    questions: [{
+        number: Number,
+        questionAnswer : [{
+            number: Number,
+            name: String,
+            isChecked: Boolean,
+        }]
+    }]
 })
 
-export const QuizAnswer = mongoose.model('Quiz', quizAnswerSchema);
+export const QuizAnswer = mongoose.model('QuizAttempt', quizAnswerSchema);

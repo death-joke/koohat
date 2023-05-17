@@ -2,7 +2,8 @@ import mongoose, {Schema} from 'mongoose';
 
 let scoreSchema = new Schema({
     userId : String,
-    scoreId : String,
-    quizId : String
+    quizId : String,
+    correctAnswers : Number,
+    totalAnswers : Number,
 })
 export const Score = mongoose.model('Score', scoreSchema);

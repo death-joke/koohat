@@ -1,23 +1,40 @@
 import express from 'express';
+import http from 'http';
+import {Server} from 'socket.io';
 import mongoose from 'mongoose';
-
-export const mongo = mongoose.connect("mongodb://127.0.0.1:27017").then(r => {
-    console.log("Mongoose ok");
-})
-// export const ObjectId = mongoose.Types.ObjectId;
-const app = express();
 import {User} from './models/user.js';
 import {Quiz} from './models/quiz.js';
 import {Score} from "./models/score.js";
 import {getId} from "./utils.js";
+import {QuizAnswer} from "./models/quiz-answer.js";
 // import dotenv from 'dotenv';
 // console.log(dotenv.config());
+mongoose.connect("mongodb://127.0.0.1:27017").then(r => {
+    console.log("Mongoose ok");
+})
+// export const ObjectId = mongoose.Types.ObjectId;
+const app = express();
 app.use(express.json())
 
-//Server listen on port 3001
-app.listen(3001, () =>
+const server = http.createServer(app);
+export const io = new Server(server, {
+    cors: {origin: "*", methods: ["GET", "POST"]}
+});
+
+
+io.on("connection", (socket) => {
+    console.log('a user connected : ' + socket.id);
+    io.on("join-room", (roomId, userId, cb) => {
+        socket.join(roomId);
+        socket.to(roomId).emit("user-connected", userId);
+        cb("Vous avez rejoint la room "+roomId+" avec l'id "+userId);
+    });
+});
+
+// Start the server
+server.listen(3001, () => {
     console.log('Express server is running on localhost:3001')
-);
+});
 
 // Headers for all requests
 app.use((req, res, next) => {
@@ -29,7 +46,7 @@ app.use((req, res, next) => {
 
 // Options - Accept preflight requests from client
 app.options('*', function (req, res) {
-    res.send(200);
+    res.sendStatus(200);
 });
 
 //Score - Endpoints
@@ -41,7 +58,7 @@ app.options('*', function (req, res) {
 app.route("/score/:id")
     .delete((req, res) => {
         let id = getId(req.params.id, res);
-        Score.findOneAndDelete({userId: id}).then(r => {
+        QuizAnswer.findOneAndDelete({userId: id}).then(r => {
             res.status(200);
             res.send(`Score supprimé`);
         }, error => {
@@ -52,7 +69,7 @@ app.route("/score/:id")
     })
     .get((req, res) => {
         let id = getId(req.params.id, res);
-        Score.findOne({userId: id}).then(r => {
+        QuizAnswer.findOne({userId: id}).then(r => {
             res.status(200);
             res.send(r);
         }, error => {
@@ -165,7 +182,7 @@ app.post("/login", (req, res) => {
     console.log("POST /login - logging user");
     let user = new User(req.body);
     User.findOne({name: user.name}).then(u => {
-        console.log(u)
+        // console.log(u)
         if (u != null) {
             if (u.password === user.password) {
                 res.status(200);
@@ -204,6 +221,99 @@ app.post("/register", (req, res) => {
         }
     });
 })
+/**
+ * /user-quiz/:id
+ * GET - Get all quiz of a user
+ */
+app.get("/user-quiz/:id", (req, res) => {
+    console.log("GET /user-quiz/:id - retrieving all quiz of a user")
+    let id = getId(req.params.id, res);
+    Quiz.find({userId: id}).then(r => {
+        res.status(200);
+        res.send(r);
+    }, error => {
+        console.log(error);
+        res.status(500);
+        res.send(`Erreur lors de la récupération des quiz`);
+    })
+});
 
+/**
+ * /user-quiz/score/
+ * GET - Get all quiz of a user
+ */
+app.post("/user-quiz/score/:id", (req, res) => {
+    console.log("GET /user-quiz/score - retrieving all quiz of a user")
+    let id = getId(req.params.id, res);
+    QuizAnswer.find({userId: id}).then(r => {
+        console.log("res")
+        console.log(r)
+        res.status(200);
+        res.send(r);
 
+    }, error => {
+        console.log(error);
+        res.status(500);
+        res.send(`Erreur lors de la récupération des essais de quiz d'un user`);
+    })
+});
+
+app.get("/user-quiz/score/:id", (req, res) => {//one score
+    console.log("GET /user-quiz/score/:id - retrieving all quiz of a user")
+    let id = getId(req.params.id, res);
+    console.log(id)
+    QuizAnswer.findOne({_id: id}).then(r => {
+        res.status(200);
+        res.send(r);
+    }, error => {
+        console.log(error);
+        res.status(500);
+        res.send(`Erreur lors de la récupération des essais de quiz d'un user`);
+    })
+});
+
+/**
+ * /quiz-answer - user attempt for a quiz
+ */
+app.post("/quiz-answer", (req, res) => {
+    console.log("POST /quiz-answer - saving quiz answer")
+    let quizAnswer = new QuizAnswer(req.body);
+    quizAnswer.date = new Date();
+    quizAnswer.score = 0;
+
+    console.log(quizAnswer.quizId)
+    //calcul du score
+    Quiz.findOne({_id: quizAnswer.quizId}).then(q => {
+        let score = 0;
+        let quiz = q;
+        // console.log(quiz.questions[0].responses)
+        for (let i = 0; i < quiz.questions.length; i++) {
+            let allAnswersOk = true;
+            for (let j = 0; j < quiz.questions[i].responses.length; j++) {
+                if (quiz.questions[i].responses[j].isCorrect != quizAnswer.questions[i].questionAnswer[j].isChecked) {
+                    allAnswersOk = false;
+                    console.log("all ok")
+                    break;
+                }
+            }
+            if (allAnswersOk) {
+                quizAnswer.score += 1;
+            }
+        }
+        console.log(quizAnswer.score)
+        console.log(quizAnswer)
+        quizAnswer.save().then(quiz => {
+            res.status(200);
+            res.send(quiz);
+        }, error => {
+            console.log(error);
+            res.status(500);
+            res.send(`Erreur lors de la création du quizAnswer`);
+        });
+    }, error => {
+        console.log(error);
+        res.status(500);
+        res.send(`Erreur du traitement du quizAnswer`);
+    });
+});
 

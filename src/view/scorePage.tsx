@@ -3,6 +3,8 @@ import '../css/404.css';
 import Score from '../composant/score';
 import {useParams} from "react-router-dom";
 import { QuizAttempt} from '../class/quizz';
+import {useParams} from "react-router-dom";
+import { QuizAttempt} from '../class/quizz';
 
 const ScorePage = () => {
 
@@ -11,18 +13,23 @@ const ScorePage = () => {
 
     const [quizzs, setQuizzs] = useState<QuizAttempt>();
 
-    // useEffect(() => {
-    //     fetch("http://localhost:3001//user-quiz/score/"+id?.toString(), {method: "GET", headers: {"Content-Type": "application/json"}})
-    //         .then((response) => response.json())
-    //         .then(data => setQuizzs(data))
-    //         .catch(error => console.log(error));
-    // }, [id]);
+    useEffect(() => {
+        fetch("http://localhost:3001/user-quiz/score/"+id, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
+            .then((response) => response.json())
+            .then(data => {
+                console.log(data)
+                setQuizzs(data)
+            })
+            .catch(error => console.log(error));
+    }, [id]);
 
 
     return (
         <div >
-            <h1>Score</h1>
-            <Score score={quizzs!.score}/>
+            <Score score={quizzs?.score}/>
 
           
 

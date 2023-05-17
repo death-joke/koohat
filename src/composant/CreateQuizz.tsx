@@ -22,21 +22,21 @@ export default function CreateQuizz() {
      * Get all data of the quizz and send the quizz to the server
      */
     function sendQuizz(){
-        var name = (document.getElementById("nameform") as HTMLInputElement).value;
-        var description = (document.getElementById("description") as HTMLInputElement).value;
-        var questions = [];
-        for(var j = 1; j < i; j++){
-            var question = (document.getElementById("question"+j) as HTMLInputElement).value;
-            var reponses = [];
-            for(var k = 1; k < 5; k++){
-                var reponse = (document.getElementById("reponse"+k+j) as HTMLInputElement).value;
-                var correct = (document.getElementById("good"+k+j) as HTMLInputElement).checked;
-                reponses.push({answerStatus: correct, anserText: reponse});
+        let name = (document.getElementById("nameform") as HTMLInputElement).value;
+        let description = (document.getElementById("description") as HTMLInputElement).value;
+        let questions = [];
+        for(let j = 1; j < i; j++){
+            let question = (document.getElementById("question"+j) as HTMLInputElement).value;
+            let reponses = [];
+            for(let k = 1; k < 5; k++){
+                let reponse = (document.getElementById("reponse"+k+j) as HTMLInputElement).value;
+                let correct = (document.getElementById("good"+k+j) as HTMLInputElement).checked;
+                reponses.push({isCorrect: correct, name: reponse});
             }
             questions.push({libelle: question, number: j, responses: reponses});
         }
-        var data = {userId: localStorage.getItem("id"), name: name, description: description, questions: questions};
-        fetch("http://localhost:3001/createQuizz", {
+        let data = {userId: localStorage.getItem("id"), name: name, description: description, questions: questions};
+        fetch("http://localhost:3001/quiz", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {"Content-Type": "application/json"}

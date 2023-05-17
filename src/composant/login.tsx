@@ -11,10 +11,11 @@ export default function Login() {
         fetch("http://localhost:3001/login", {method: "POST", body: JSON.stringify({name: name, password: password}), headers: {"Content-Type": "application/json"}})
         .then((response) => {
             if (response.status === 200){
-                localStorage.setItem("name", name);
-                window.location.href = "/home";
-                
-                //alert("ok");
+                response.json().then(data => {
+                    localStorage.setItem("name", name);
+                    localStorage.setItem("id", data._id);
+                    window.location.href = "/home";
+                });
             }
             else if (response.status === 404){
                 alert("Nom d'utilisateur ou mot de passe incorrect");

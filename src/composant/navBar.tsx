@@ -20,10 +20,7 @@ import ManageMyQuizzPage  from '../view/manageMyquizz';
 import PlayQuizzPage from "../view/PlayQuizzPage";
 import PageNotFound from '../view/404Page';
 import ScorePage from '../view/scorePage';
-/**
- * 
- * @returns the navigation bar
- */
+import HistoryPage from "../view/historyPage";
 const NavBar = () => {
 
   var isUserConnected = (localStorage.getItem("name") !== null);
@@ -33,7 +30,7 @@ const NavBar = () => {
       <Container>
         <Navbar.Brand href="/home"><img
               src="./images/koohat_logo.svg"
-              width="75"            
+              width="75"
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
@@ -41,19 +38,22 @@ const NavBar = () => {
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto"> 
+          <Nav className="me-auto">
 
-            { !isUserConnected?            
-            <Nav.Link href="/auth">sign in</Nav.Link>: null 
+            { !isUserConnected?
+            <Nav.Link href="/auth">sign in</Nav.Link>: null
             }
 
             { !isUserConnected?
-             <Nav.Link href="/login">login</Nav.Link> :null            
-            }  
+             <Nav.Link href="/login">login</Nav.Link> :null
+            }
+
+              { isUserConnected?
+                  <Nav.Link href="/my-history">History</Nav.Link>: null
+              }
 
 
-           
-           <NavDropdown title="Quizz" id="basic-nav-dropdown">
+              <NavDropdown title="Quizz" id="basic-nav-dropdown">
               <NavDropdown.Item href={ isUserConnected?'/search-quizz':'#'} onClick={
                 () => {
                   if(!isUserConnected){
@@ -67,7 +67,7 @@ const NavBar = () => {
                     alert("you must be logged in to create a quizz");
                   }
                 }
-              }>Quizz Editor</NavDropdown.Item>      
+              }>Quizz Editor</NavDropdown.Item>
 
 
                <NavDropdown.Item href={ isUserConnected?'/manage-my-quizz':'#'} onClick={
@@ -76,13 +76,13 @@ const NavBar = () => {
                     alert("you must be logged in to manage your quizz");
                   }
                 }
-              }>manage my quizz</NavDropdown.Item>         
+              }>manage my quizz</NavDropdown.Item>
             </NavDropdown>
 
-           
+
 
             { isUserConnected?
-            
+
             <Nav.Item className="ml-auto" >
               <Nav.Link  href="/login" onClick={
                 () => {
@@ -92,39 +92,40 @@ const NavBar = () => {
 
                 }
               }>sign out</Nav.Link>
-            </Nav.Item> : null 
+            </Nav.Item> : null
             }
 
-            
 
-            
+
+
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
             <Routes>
-            <Route  path="/home" element={<HomePage/>}/>
-            <Route  path="/quizz-editor" element={<QuizzEditorPage/>}/>
-            <Route  path="/search-quizz/*" element={<FindQuizzPage/>}/>
-            <Route  path="/login" element={<LoginPage/>}/>
-            <Route  path="/play-quizz/:id" element={<PlayQuizzPage/>}/>
-            <Route  path="/auth" element={<AuthPage/>}/>
-            <Route  path="/manage-my-quizz" element={<ManageMyQuizzPage/>}/>
-            <Route  path="/404" element={<PageNotFound/>}/>
-            <Route  path="/score/:id" element={<ScorePage/>}/>
-            <Route path="/" element={<Navigate to={'/home'}/>}/>
-            <Route  path="*" element={<Navigate to={'/404'}/>}/>
-        </Routes>
+                <Route path="/home" element={<HomePage/>}/>
+                <Route path="/quizz-editor" element={<QuizzEditorPage/>}/>
+                <Route path="/search-quizz/*" element={<FindQuizzPage/>}/>
+                <Route path="/login" element={<LoginPage/>}/>
+                <Route path="/play-quizz/:id" element={<PlayQuizzPage/>}/>
+                <Route path="/auth" element={<AuthPage/>}/>
+                <Route path="/manage-my-quizz" element={<ManageMyQuizzPage/>}/>
+                <Route path="/404" element={<PageNotFound/>}/>
+                <Route path="/score/:id" element={<ScorePage/>}/>
+                <Route path="/my-history" element={<HistoryPage/>}/>
+                <Route path="/" element={<Navigate to={'/home'}/>}/>
+                <Route path="*" element={<Navigate to={'/404'}/>}/>
+            </Routes>
 
-      
 
 
-        
+
+
         </div>
 
 
-            
-     
+
+
     );
     };
 

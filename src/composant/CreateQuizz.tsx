@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 
+
 import "../css/quizz_editor.css";
 
 import Question from "./question";
@@ -44,6 +45,8 @@ export default function CreateQuizz() {
         .then((response) => {
             if (response.status === 200){
                 alert("Formulaire créé");
+                //redirect to the quizz manager
+                window.location.href = "/manage-my-quizz";
             }
             else if (response.status === 409){
                 alert("Nom du formulaire déjà utilisé");
@@ -85,8 +88,8 @@ export default function CreateQuizz() {
                 <Question number={1} key={2}/>
             </div>
             {question}
-            <button onClick={AddQuestion}>Ajouter une question</button>
-            <button onClick={sendQuizz}>Créer le formulaire</button>
+            <button onClick={AddQuestion}>Add a question</button>
+            <button onClick={sendQuizz}>Create form</button>
         </div>
     )
 }

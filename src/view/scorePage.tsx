@@ -4,6 +4,11 @@ import Score from '../composant/score';
 import {useParams} from "react-router-dom";
 import { QuizAttempt} from '../class/quizz';
 
+
+import '../css/score.css'
+
+
+
 const ScorePage = () => {
 
 
@@ -26,8 +31,9 @@ const ScorePage = () => {
 
 
     return (
-        <div >
-            <Score score={quizzs?.score}/>
+        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
+
+           <Score quizz={quizzs}/>
         </div>
     );
 };

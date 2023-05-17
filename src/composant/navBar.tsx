@@ -107,7 +107,7 @@ const NavBar = () => {
             <Route  path="/auth" element={<AuthPage/>}/>
             <Route  path="/manage-my-quizz" element={<ManageMyQuizzPage/>}/>
             <Route  path="/404" element={<PageNotFound/>}/>
-            <Route  path="/score" element={<ScorePage/>}/>
+            <Route  path="/score/:id" element={<ScorePage/>}/>
 
             <Route  path="*" element={<Navigate to={'/404'}/>}/>
         </Routes>

@@ -38,7 +38,10 @@ const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
                 headers: {"Content-Type": "application/json"}
             })
             .then((response) => response.json())
-            .then(data => console.log(data))
+            .then(data => {console.log(data)
+                window.location.href = "/score/"+data.id;
+            
+            })
             .catch(error => console.log(error));
     }
 
@@ -53,7 +56,8 @@ const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
         let quizAttempt: QuizAttempt = {
             quizId: id!,
             userId: userId!,
-            questions: []
+            questions: [],
+            score: 0
         };
         quizz?.questions.forEach((question) => {
             let questionAttempt : QuestionAttempt = {questionAnswer: [], number: question.number};

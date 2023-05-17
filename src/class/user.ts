@@ -1,4 +1,12 @@
-//create a user class with the field name , password and id 
+/**
+ * User class
+ * @class User
+ * @constructor
+ * @param {string} name - The name of the user
+ * @param {string} password - The password of the user
+ * @param {number} id - The id of the user
+ * 
+ */
 export class User {
 
     name: string;

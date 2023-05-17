@@ -1,4 +1,12 @@
-//create a score class with the field usernema,score and nom questionaire
+/**
+ * Score class
+ * @class Score
+ * @constructor
+ * @param {string} username - The username of the score
+ * @param {number} score - The score of the user
+ * @param {number} nomQuestionnaire - The id of the quiz
+ * 
+ */
 export class Score {
     username: string;
     score: number;

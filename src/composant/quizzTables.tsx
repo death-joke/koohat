@@ -7,7 +7,11 @@ import { Link} from 'react-router-dom';
 import { Routes, Route} from 'react-router-dom';
 
 import PlayQuizzPage from '../view/PlayQuizzPage';
-//create a componement who print the element of a table of Quizz
+/**
+ * 
+ * @param props 
+ * @returns  composant who print all the quizz pass in props to play it, and permit to lauch the play quizz page
+ */
 const QuizzTables = (props: { quizzs: Quizz[] }) => {
     return (
         <div>

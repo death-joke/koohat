@@ -20,6 +20,10 @@ import ManageMyQuizzPage  from '../view/manageMyquizz';
 import PlayQuizzPage from "../view/PlayQuizzPage";
 import PageNotFound from '../view/404Page';
 import ScorePage from '../view/scorePage';
+/**
+ * 
+ * @returns the navigation bar
+ */
 const NavBar = () => {
 
   var isUserConnected = (localStorage.getItem("name") !== null);

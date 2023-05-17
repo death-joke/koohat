@@ -3,7 +3,10 @@
 import React, {useEffect, useState} from 'react';
 import QuizzTables from '../composant/quizzTables';
 
-
+/**
+ * 
+ * @returns the find quizz page
+ */
 const FindQuizzPage = () => {
     if (localStorage.getItem("name") == null) {
         alert("You are not logged in");

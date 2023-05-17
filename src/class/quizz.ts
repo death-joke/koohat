@@ -1,4 +1,13 @@
-//create a quizz class with the field creator,Id,name ,summary question and response 
+/**
+ * Quizz class
+ * @class Quizz
+ * @constructor
+ * @param {string} creator - The creator of the quizz
+ * @param {string} id - The id of the quizz
+ * @param {string} name - The name of the quizz
+ * @param {string} summary - The summary of the quizz
+ * @param {Question[]} questions - The questions of the quizz
+ */
 export class Quizz {
     _id: string;
     userId: string;
@@ -13,46 +22,51 @@ export class Quizz {
         this.questions = questions;
     }
 
-    //create a static function to generate randdom quizz
-    // static generateRandomQuizz(): Quizz {
-    //     return new Quizz("creator" + Math.floor(Math.random() * 1000000), Math.floor(Math.random() * 1000000), "name" + Math.floor(Math.random() * 1000000), "summary" + Math.floor(Math.random() * 1000000), ["question" + Math.floor(Math.random() * 1000000)], [Response.generateRandomResponse()]);
-    // }
 
-    //create a static function to generate an array of random quizz
-    // static generateRandomQuizzArray(size: number): Quizz[] {
-    //     let quizzArray: Quizz[] = [];
-    //     for (let i = 0; i < size; i++) {
-    //         quizzArray.push(Quizz.generateRandomQuizz());
-    //     }
-    //     return quizzArray;
-    // }
 
 
 }
 
-//create a response class with the field name and isCorrect
+/**
+ * Question class
+ * @class Question
+ * @constructor
+ * @param {string} libelle - The libelle of the question
+ * @param {number} number - The number of the question
+ * 
+ */
 export interface Response {
     name: string;
     isCorrect: boolean;
-    // constructor(name: string, isCorrect: boolean) {
-    //     this.name = name;
-    //     this.isCorrect = isCorrect;
-    // }
 
-    //create a static function to generate randdom response
-    // static generateRandomResponse(): Response {
-    //     return new Response("response" + Math.floor(Math.random() * 1000000), Math.random() < 0.5);
-    // }
 
 
 }
 
+/**
+ * Question class
+ * @class Question
+ * @constructor
+ * @param {string} libelle - The libelle of the question
+ * @param {number} number - The number of the question
+ * @param {Response[]} responses - The responses of the question
+ */
 export interface Question {
     libelle: string;
     number: number;
     responses: Response[];
 }
 
+/**
+ * QuizAttempt class
+ * @class QuizAttempt
+ * @constructor
+ * @param {string} quizId - The id of the quiz
+ * @param {string} userId - The id of the user
+ * @param {number} score - The score of the user
+ * @param {QuestionAttempt[]} questions - The questions of the quiz
+ * 
+ */
 export interface QuizAttempt {
     _id?: string;
     quizId: string;
@@ -61,11 +75,29 @@ export interface QuizAttempt {
     questions: QuestionAttempt[] // [question][responses]
 }
 
+/**
+ * QuestionAttempt class
+ * @class QuestionAttempt
+ * @constructor
+ * @param {number} number - The number of the question
+ * @param {QuizAnswer[]} questionAnswer - The answers of the question
+ * 
+ */
 export interface QuestionAttempt {
     number: number;
     questionAnswer: QuizAnswer[];
 }
 
+
+/**
+ * QuizAnswer class
+ * @class QuizAnswer
+ * @constructor
+ * @param {number} number - The number of the response
+ * @param {string} name - The name of the response
+ * @param {boolean} isChecked - The state of the response
+ * 
+ */
 export interface QuizAnswer {
     number: number,
     name: string,

@@ -5,7 +5,10 @@ import Register from '../composant/register';
 
 
 
-
+/**
+ * 
+ * @returns the auth page
+ */
 const AuthPage = () => {
     if (localStorage.getItem("name") !== null) {
         alert("You are already logged in");

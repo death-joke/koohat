@@ -4,7 +4,10 @@ import Login from '../composant/login';
 
 
 
-
+/**
+ * 
+ * @returns the login page
+ */
 const LoginPage = () => {
     if (localStorage.getItem("name") !== null) {
         alert("You are already logged in");

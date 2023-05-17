@@ -3,8 +3,15 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import '../css/login.css';
 
+/**
+ * 
+ * @returns the  componement to loggin
+ */
 export default function Login() {
 
+    /**
+     * Connect the user to the server
+     */
     function connecter(){
         let name = (document.getElementById("name") as HTMLInputElement).value;
         let password = (document.getElementById("password") as HTMLInputElement).value;

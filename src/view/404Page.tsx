@@ -1,5 +1,10 @@
 import React from 'react';
 import '../css/404.css';
+
+/**
+ * 
+ * @returns the 404 page
+ */
 const PageNotFound = () => {
     return (
         <div id='page404'>

@@ -3,8 +3,16 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import '../css/register.css';
 
+/**
+ * 
+ * @returns the  componement to loggin
+ */
 export default function Register() {
 
+    /**
+     * Connect the user to the server
+     * @returns
+     * */
     function checkConnected(){
         if (localStorage.getItem("name") !== null){
             //window.location.href = "/";
@@ -12,6 +20,10 @@ export default function Register() {
         }
     }
 
+    /**
+     * Connect the user to the server
+     * 
+     * */
     function createAccount(){
         var name = (document.getElementById("name") as HTMLInputElement).value;
         var email = (document.getElementById("email") as HTMLInputElement).value;

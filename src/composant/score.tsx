@@ -4,7 +4,11 @@ import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
 
 
-//create a componenement who print a score 
+/**
+ * 
+ * @param props 
+ * @returns  composant who print the score of the quizz pass in props
+ */
 const Score = (props: { quizz: QuizAttempt | undefined; }) => {
     console.log(props.quizz);
 

@@ -12,8 +12,7 @@ import Form from 'react-bootstrap/Form';
 export default function Question(props: any) {
     return (
         <div className="question_edit">
-            {/* <label>Question {props.number}: </label>
-            <input type="text" id={"question"+props.number}/> */}
+         
 
             <FloatingLabel
             controlId="floatingInput"
@@ -25,9 +24,7 @@ export default function Question(props: any) {
 
 
 
-            {/* <br /> */}
-            {/* <label>Réponse 1 : </label>
-            <input type="text" id={"reponse1"+props.number}/> */}
+         
 
             <FloatingLabel
             controlId="floatingInput"
@@ -39,9 +36,7 @@ export default function Question(props: any) {
 
 
 
-            {/* <br />
-            <label>Réponse 2 : </label>
-            <input type="text" id={"reponse2"+props.number}/> */}
+        
 
             <FloatingLabel
             controlId="floatingInput"
@@ -55,9 +50,7 @@ export default function Question(props: any) {
 
 
 
-            {/* <br /> */}
-            {/* <label>Réponse 3 : </label>
-            <input type="text" id={"reponse3"+props.number}/> */}
+        
 
 <FloatingLabel
             controlId="floatingInput"
@@ -69,9 +62,7 @@ export default function Question(props: any) {
 
 
 
-            {/* <br /> */}
-            {/* <label>Réponse 4 : </label>
-            <input type="text" id={"reponse4"+props.number}/> */}
+     
 
 <FloatingLabel
             controlId="floatingInput"

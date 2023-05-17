@@ -1,7 +1,10 @@
 //create a home page component who print "home page"
 import React from 'react';
 import '../css/home.css'
-
+/**
+ * 
+ * @returns the home page
+ */
 const HomePage = () => {
     return (
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', }}>

@@ -7,6 +7,10 @@ import "../css/quizz_editor.css";
 
 import Question from "./question";
 
+/**
+ * 
+ * @returns the  componement to create a quizz
+ */
 export default function CreateQuizz() {
     const [question, setQuestion] = useState<React.ReactNode[]>([]);
     const [i, setI] = useState<number>(2);
@@ -54,6 +58,7 @@ export default function CreateQuizz() {
         })
     }
 
+    
     return(
         <div id="quizz_edit_div">
             <h1>Create a Quizz</h1>

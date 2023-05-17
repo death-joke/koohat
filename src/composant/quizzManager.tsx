@@ -4,7 +4,11 @@ import React from 'react';
 import {Table} from 'react-bootstrap';
 import {Quizz} from '../class/quizz';
 
-
+/**
+ * 
+ * @param props 
+ * @returns composant who print all the quizz pass in props to manage it
+ */
 const QuizzManager = (props: { quizzList: Quizz[] }) => {
     return (
         <div>

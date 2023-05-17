@@ -1,6 +1,8 @@
 // import {ObjectId} from "./index.js";
 
 export function getId(id, res) {
+    console.log("getId")
+    console.log(id)
     if (id == null) {
         res.status(400);
         res.send(`Id manquant`);

@@ -39,7 +39,7 @@ const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
             })
             .then((response) => response.json())
             .then(data => {console.log(data)
-                window.location.href = "/score/"+data.id;
+                window.location.href = "/score/"+data._id;
             
             })
             .catch(error => console.log(error));

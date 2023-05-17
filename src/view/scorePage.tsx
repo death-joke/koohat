@@ -12,17 +12,22 @@ const ScorePage = () => {
     const [quizzs, setQuizzs] = useState<QuizAttempt>();
 
     useEffect(() => {
-        fetch("http://localhost:3001//user-quiz/score/"+id?.toString(), {method: "GET", headers: {"Content-Type": "application/json"}})
+        fetch("http://localhost:3001/user-quiz/score/"+id, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
             .then((response) => response.json())
-            .then(data => setQuizzs(data))
+            .then(data => {
+                console.log(data)
+                setQuizzs(data)
+            })
             .catch(error => console.log(error));
     }, [id]);
 
 
     return (
         <div >
-            <h1>Score</h1>
-            <Score score={quizzs!.score}/>
+            <Score score={quizzs?.score}/>
 
           
 

@@ -38,8 +38,8 @@ const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
                 headers: {"Content-Type": "application/json"}
             })
             .then((response) => response.json())
-            .then(data => {console.log(data);
-                window.location.href = "/score/"+data.id;
+            .then(data => {console.log(data)
+                window.location.href = "/score/"+data._id;
             
             })
             .catch(error => console.log(error));

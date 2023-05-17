@@ -258,7 +258,8 @@ app.get("/user-quiz/score", (req, res) => {
 app.get("/user-quiz/score/:id", (req, res) => {
     console.log("GET /user-quiz/score/:id - retrieving all quiz of a user")
     let id = getId(req.params.id, res);
-    Quiz.find({userId: id}).then(r => {
+    console.log(id)
+    QuizAnswer.findOne({_id: id}).then(r => {
         res.status(200);
         res.send(r);
     }, error => {

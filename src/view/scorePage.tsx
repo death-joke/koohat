@@ -28,10 +28,6 @@ const ScorePage = () => {
     return (
         <div >
             <Score score={quizzs?.score}/>
-
-          
-
-            
         </div>
     );
 };

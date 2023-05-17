@@ -64,7 +64,7 @@ export default function CreateQuizz() {
             label="Quizz name"
             className="mb-3"
             >
-                <Form.Control type="email" placeholder="name@example.com" id="nameform" />
+                <Form.Control type="email" placeholder="name@example.com" data-testid={"nameform"} id="nameform" />
             </FloatingLabel>
           
                 

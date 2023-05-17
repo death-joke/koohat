@@ -3,6 +3,7 @@ import { QuizAttempt } from "../class/quizz";
 import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
 
+
 //create a componenement who print a score 
 const Score = (props: { quizz: QuizAttempt | undefined; }) => {
     console.log(props.quizz);
@@ -32,6 +33,9 @@ const Score = (props: { quizz: QuizAttempt | undefined; }) => {
 
 
     return (
+        <div> 
+            
+            {iscongretualation ? <Confetti width={width} height={height}  />: null}
         <div id="score_div"> 
             
             {iscongretualation ? <Confetti width={width} height={height}  />: null}
@@ -49,6 +53,7 @@ const Score = (props: { quizz: QuizAttempt | undefined; }) => {
             <br />
 
             <button onClick={() => { window.location.href = "/search-quizz/*"; }}>Home</button>
+        </div>
         </div>
     );
 };

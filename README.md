@@ -1,3 +1,35 @@
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![React Routeur](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+
+![Nodejs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white)
+![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
+
+![MIT License](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)
+![Contributors](https://img.shields.io/github/contributors/death-joke/koohat)
+
+![Koohat logo](/public/images/koohat_logo.svg)
+# How to use koohat ?
+## Create an account
+If you don't akreadt have an account, you can create one by using the "sign in" button on the top left of the web page. This step is required to use the koohat website.
+
+## Login with an already existing account
+If your account is already created, you can enter your login and your password in the text field in the middle of the web page.
+
+## Create a quizz
+You can start the creation of a quizz by clicking "Quizz editor" in the quizz drop down menu in the top naviguation bar. Here, you will be able to fill out the question, and its answers. You can fill up to four answer before selecting the correct ones with the help of the checkboxes at the bottom. Use the "Add a question" button to add a new question and fill it. When you're done with your quizz, you can validate it by clicking the "Create form" button.
+
+## Manage your quizzs
+You can display a list of all of your quizz by cliking "Manage my quizz" in the quizz drop down menu in the top naviguation bar. This is where you are able to delete one or many quizz.
+
+## Join a quizz
+You can launch a quizz by using the quizz drop down meny in the top naviaguation bar. Have fun !
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

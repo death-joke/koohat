@@ -8,7 +8,10 @@ import { QuizAttempt} from '../class/quizz';
 import '../css/score.css'
 
 
-
+/**
+ * Score page
+ * @returns the score of the user
+ */
 const ScorePage = () => {
 
 

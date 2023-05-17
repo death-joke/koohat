@@ -2,6 +2,10 @@
 import React from 'react';
 import CreateQuizz from '../composant/CreateQuizz';
 
+/**
+ * Quiz editor page
+ * @returns the quiz editor page
+ */
 const QuizzEditorPage = () => {
     if (localStorage.getItem("name") == null) {
         alert("You are not logged in");

@@ -7,6 +7,10 @@ import {useParams} from "react-router-dom";
 
 import '../css/PlayQuizz.css';
 
+/**
+ * Play quizz page
+ * @returns the play quizz page
+ */
 const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
 
     if (localStorage.getItem("name") == null) {

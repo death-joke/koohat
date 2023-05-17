@@ -101,16 +101,21 @@ const NavBar = () => {
             <Routes>
             <Route  path="/home" element={<HomePage/>}/>
             <Route  path="/quizz-editor" element={<QuizzEditorPage/>}/>
-            <Route  path="/search-quizz" element={<FindQuizzPage/>}/>
+            <Route  path="/search-quizz/*" element={<FindQuizzPage/>}/>
             <Route  path="/login" element={<LoginPage/>}/>
             <Route  path="/play-quizz/:id" element={<PlayQuizzPage/>}/>
             <Route  path="/auth" element={<AuthPage/>}/>
             <Route  path="/manage-my-quizz" element={<ManageMyQuizzPage/>}/>
             <Route  path="/404" element={<PageNotFound/>}/>
             <Route  path="/score/:id" element={<ScorePage/>}/>
-
+            <Route path="/" element={<Navigate to={'/home'}/>}/>
             <Route  path="*" element={<Navigate to={'/404'}/>}/>
         </Routes>
+
+      
+
+
+        
         </div>
 
 

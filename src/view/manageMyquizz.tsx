@@ -6,6 +6,11 @@ import { Quizz } from '../class/quizz';
 import '../css/quizzManager.css'
 
 const ManageMyQuizzPage = () => {
+    if (localStorage.getItem("name") == null) {
+        alert("You are not logged in");
+        window.location.href = "/login";
+        
+    }
 
     const [quizzs, setQuizzs] = useState([]);
 

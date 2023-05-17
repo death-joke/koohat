@@ -3,6 +3,11 @@ import React from 'react';
 import CreateQuizz from '../composant/CreateQuizz';
 
 const QuizzEditorPage = () => {
+    if (localStorage.getItem("name") == null) {
+        alert("You are not logged in");
+        window.location.href = "/login";
+        
+    }
     return (
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', }}>
            <CreateQuizz/>

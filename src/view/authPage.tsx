@@ -7,6 +7,11 @@ import Register from '../composant/register';
 
 
 const AuthPage = () => {
+    if (localStorage.getItem("name") !== null) {
+        alert("You are already logged in");
+        window.location.href = "/home";
+        
+    }
     return (
         <div className="AuthPage" style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '60vh'}}>
             <Register/>

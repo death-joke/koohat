@@ -8,6 +8,12 @@ import {useParams} from "react-router-dom";
 import '../css/PlayQuizz.css';
 
 const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
+
+    if (localStorage.getItem("name") == null) {
+        alert("You are not logged in");
+        window.location.href = "/login";
+        
+    }
     // console.log("quiz");
     const {id} = useParams();
     // console.log(id);
@@ -30,7 +36,7 @@ const PlayQuizzPage = (/*props: { quizz: Quizz }*/) => {
                 body: JSON.stringify(quizAttempt),
                 headers: {"Content-Type": "application/json"}
             })
-            // .then((response) => response.json())
+            .then((response) => response.json())
             // .then(data => setQuizz(data))
             .catch(error => console.log(error));
     }

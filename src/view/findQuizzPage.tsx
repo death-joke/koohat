@@ -5,6 +5,11 @@ import QuizzTables from '../composant/quizzTables';
 
 
 const FindQuizzPage = () => {
+    if (localStorage.getItem("name") == null) {
+        alert("You are not logged in");
+        window.location.href = "/login";
+        
+    }
 
     const [quizzs, setQuizzs] = useState([]);
 

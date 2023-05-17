@@ -6,6 +6,11 @@ import Login from '../composant/login';
 
 
 const LoginPage = () => {
+    if (localStorage.getItem("name") !== null) {
+        alert("You are already logged in");
+        window.location.href = "/home";
+        
+    }
     return (
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '50vh'}}>
             <Login/>

@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom";
 import { QuizAttempt} from '../class/quizz';
 
 
+
 const ScorePage = () => {
 
 
